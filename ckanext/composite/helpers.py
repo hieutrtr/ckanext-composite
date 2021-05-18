@@ -211,6 +211,8 @@ def composite_repeating_get_value_dict_list(field_name, subfields, data, field_b
 
 
 def composite_is_mail(value):
+    if isinstance(value, list):
+        return False
     EMAIL_REGEX = r"[^@\s]+@[^@\s]+\.[a-zA-Z0-9]+$"
     if re.match(EMAIL_REGEX, value):
         return True
